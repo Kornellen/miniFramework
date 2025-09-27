@@ -1,38 +1,38 @@
 {
-  "name": "@miniframework/common",
-  "version": "0.0.0",
-  "description": "Mini Express Framework",
+  "name": "@miniframework/core",
+  "version": "0.1.0",
+  "description": "Simple mini framework for Express.js. Inspired By Nest.js.",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon dist/framework/index.js",
     "build:ts": "tsc",
     "build:project": "powershell scripts/buildProject.ps1",
     "create:package": "powershell scripts/createPackage.ps1"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/Kornellen/miniFramework.git"
   },
-  "exports": {
-    ".": "./dist/framework/decorators/index.js"
-  },
+  "keywords": [],
   "author": "Kornellen",
   "license": "MIT",
-  "type": "commonjs",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Kornellen/miniFramework/issues"
+  },
+  "homepage": "https://github.com/Kornellen/miniFramework#readme",
   "devDependencies": {
-    "@eslint/js": "^9.36.0",
     "@types/express": "^5.0.3",
     "@types/node": "^24.5.2",
-    "cpy": "^12.0.1",
-    "eslint": "^9.36.0",
-    "globals": "^16.4.0",
-    "jiti": "^2.6.0",
-    "nodemon": "^3.1.10",
-    "prisma": "^6.16.2",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.44.1"
+    "typescript": "^5.9.2"
   },
   "dependencies": {
     "express": "^5.1.0",
     "reflect-metadata": "^0.2.2"
+  },
+  "exports": {
+    ".": "./dist/framework/AppBootstrap.js",
+    "./common": "./dist/framework/decorators/index.js",
+    "./components": "./dist/framework/modules/BaseModules/index.js"
   }
 }

@@ -1,8 +1,7 @@
 
 src/
 examples/
-generated/
+scripts/
+logs/
 
 tsconfig.json
-
-*.env

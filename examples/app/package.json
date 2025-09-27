@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@miniframework/common": "file:../../miniframework-common-0.0.0.tgz",
-    "express": "5.1.0"
-  }
-}

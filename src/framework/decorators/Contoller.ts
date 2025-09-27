@@ -1,6 +1,6 @@
-import { RouteType } from "../../types";
 import { Request, Response, Router } from "express";
 import "reflect-metadata";
+import { RouteType } from "types/index.js";
 export const AppControllers: any[] = [];
 
 const router = Router();
@@ -24,7 +24,14 @@ export function Controller(basePath: string) {
           controller[route.handler.name](req, res)
       );
     });
-    Reflect.defineMetadata("Controllers:basePath", basePath, target);
+
+    routes.forEach((route) =>
+      Reflect.defineMetadata(
+        "Controllers:Routes",
+        (route.path = `${basePath}${route.path}`),
+        target
+      )
+    );
   };
 }
 

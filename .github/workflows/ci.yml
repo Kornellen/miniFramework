@@ -1,0 +1,30 @@
+name: miniFramework CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set-up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Clean Project Structure
+        run: ./scripts/prepareForGitHub.ps1
+        shell: pwsh
+
+      - name: Create Package
+        run: ./scripts/createPackage.ps1
+        shell: pwsh
