@@ -1,0 +1,1 @@
+{"version":3,"file":"FileHandler.js","sourceRoot":"","sources":["../../../../../src/framework/core/modules/main/FileHandler.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,IAAI,CAAC;AAEpB;;GAEG;AAEH,MAAM,OAAO,WAAW;IACf,MAAM,CAAC,OAAO,CAAC,QAA4B;QAChD,IAAI,CAAC,QAAQ;YAAE,OAAO,SAAS,CAAC;QAChC,OAAO,EAAE,CAAC,YAAY,CAAC,QAAQ,EAAE,MAAM,CAAC,CAAC;IAC3C,CAAC;CACF"}

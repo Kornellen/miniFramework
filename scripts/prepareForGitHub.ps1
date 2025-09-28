@@ -1,3 +1,16 @@
-Remove-Item -Recurse dist
+function RemovePath {
+    param (
+        [string] $path
+    )
 
-Remove-Item -Recurse logs
+    if (Test-Path -Path $path) {
+        Remove-Item -Recurse $path
+    }
+}
+
+$dirs = @("dist", "logs", "*.tgz")
+
+foreach ($dir in $dirs) {
+    RemovePath($dir)
+}
+

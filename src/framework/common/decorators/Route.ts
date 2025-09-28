@@ -8,10 +8,12 @@ export function Route({
   method,
   path,
   middlewares,
+  description,
 }: {
   method: HttpMethod;
   path?: string;
   middlewares?: Array<RequestHandler | ErrorRequestHandler>;
+  description: string;
 }) {
   return function (
     target: any,
@@ -26,6 +28,7 @@ export function Route({
         path,
         handler: descriptor.value,
         middlewares: middlewares,
+        description: description,
       },
     });
 
@@ -34,6 +37,7 @@ export function Route({
       path,
       handler: descriptor.value,
       middlewares: middlewares,
+      description: description,
     });
 
     Reflect.defineMetadata(

@@ -1,13 +1,15 @@
 {
   "name": "@miniframework/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple mini framework for Express.js. Inspired By Nest.js.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon dist/framework/index.js",
+    "example": "npm run create:package && npm --prefix ./examples/test-app run clean:install && npm --prefix ./examples/test-app run dev",
     "build:ts": "tsc",
     "build:project": "powershell scripts/buildProject.ps1",
-    "create:package": "powershell scripts/createPackage.ps1"
+    "create:package": "powershell scripts/createPackage.ps1",
+    "repository:prepare": "powershell scripts/prepareForGitHub.ps1"
   },
   "repository": {
     "type": "git",
@@ -24,15 +26,19 @@
   "devDependencies": {
     "@types/express": "^5.0.3",
     "@types/node": "^24.5.2",
+    "@types/ws": "^8.18.1",
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "dotenv": "^17.2.2",
     "express": "^5.1.0",
-    "reflect-metadata": "^0.2.2"
+    "reflect-metadata": "^0.2.2",
+    "ws": "^8.18.3"
   },
   "exports": {
-    ".": "./dist/framework/AppBootstrap.js",
-    "./common": "./dist/framework/decorators/index.js",
-    "./components": "./dist/framework/modules/BaseModules/index.js"
+    ".": "./dist/framework/core/AppBootstrap.js",
+    "./common": "./dist/framework/common/index.js",
+    "./components": "./dist/framework/core/modules/BaseModules/index.js",
+    "./functions": "./dist/framework/core/modules/main/accessable.js"
   }
 }
