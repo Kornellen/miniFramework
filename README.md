@@ -18,17 +18,31 @@ Main Philosophy of this project is `Write Less, Do More` _i think_
 
 ## Installation
 
+### As repo
+
 1. clone repo
 
-```bash
-git clone https://github.com/Kornellen/miniFramework.git
-```
+   ```bash
+   git clone https://github.com/Kornellen/miniFramework.git
+   ```
 
 2. enter miniFramework directory
 
-3. use `npm run create:package` for \*.tgz file
+3. use `npm run create:package` for \*.tgz archive
 
-4. In your new project just install this package `npm install <path_to_tgz_file>`
+4. In your new project just install this package `npm install <path_to_tgz_archive>`
+
+### As release
+
+1. Download latest \*.tgz archive from Release
+
+2. Enter your new project
+
+3. Install package
+
+   ```bash
+   npm install <path_to_tgz_archive>
+   ```
 
 ## Simple Usage
 
@@ -40,15 +54,24 @@ An example of App Entry point
 
 ```TypeScript
 import { AppBootstrap } from "@miniframework/core";
+import { WebServer } from "@miniframework/core/functions";
 import "./controllers/index.js";
 
-const app = new AppBootstrap().start();
-app.listen(8080, () => console.log(`App is working`));
+function main() {
+  try {
+    const app = new AppBootstrap().start();
+    WebServer.HTTPSServer(app, 8080);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+main();
 ```
 
 ### Decorators
 
-Like Nest.js, this _framework_ uses decorators
+Like Nest.js, this _framework_ uses decorators.
 Right now there are two decorators: `Route` and `Controller`
 
 ```TypeScript
@@ -57,7 +80,7 @@ import {Request, Response} from "express"
 
 @Controller("/test")
 class TestController {
-    @Route({method: "get", path: ""})
+    @Route({method: "get", path: "", description: "Simple Route - Returns `Hello, World`"})
     public helloWorld(req: Request, res: Response): void {
         res.send("Hello, World")
     }
@@ -72,7 +95,8 @@ class TestController {
 {
     method: <HTTP Request Method (get, post)>,
     path: sub-path of request eg. /getStatus or /:id,
-    middlewares`: Array of middlewares (not necessary)
+    middlewares: Array of middlewares (not necessary),
+    description: Description of Endpoint
 }
 ```
 
@@ -82,7 +106,7 @@ This _Framework_ is created in TypeScript and uses OOP
 
 ## Planned Features
 
-- [] Implementation of Swagger-Like endpoint Documentation
+- [x] Implementation of Swagger-Like endpoint Documentation
 - [] Add more decorators and functionalities
 
 ## Contributing
