@@ -3,5 +3,6 @@ src/
 examples/
 scripts/
 logs/
+.github/
 
 tsconfig.json

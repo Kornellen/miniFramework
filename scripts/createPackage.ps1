@@ -2,6 +2,10 @@ if (-not (Test-Path -Path logs)) {
     mkdir logs
 }
 
+if (Test-Path -Path *.tgz) {
+    Remove-Item ./*.tgz
+}
+
 "" | Out-File logs/package.log
 
 $commands = @("npm run build:project", "npm pack --pack-destination .")

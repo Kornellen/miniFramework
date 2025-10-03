@@ -1,5 +1,6 @@
 import { AppBootstrap } from "@miniframework/core";
 import { WebServer } from "@miniframework/core/functions";
+import "./middlewares/index.js";
 import "./controllers/index.js";
 
 function main() {

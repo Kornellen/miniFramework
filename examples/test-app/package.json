@@ -8,14 +8,16 @@
     "dev": "node --loader ts-node/esm src/index.ts",
     "clean": "powershell scripts/clean.ps1",
     "clean:install": "powershell scripts/clean.ps1 && npm i",
-    "build": "tsc"
+    "build": "tsc",
+    "prisma:generate": "npx prisma generate",
+    "postinstall": "npm run prisma:generate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@miniframework/core": "file:../../miniframework-core-0.1.0.tgz",
+    "@miniframework/core": "file:../../miniframework-core-0.2.0.tgz",
     "@types/express": "^5.0.3",
     "express": "^5.1.0",
     "test-app": "file:"

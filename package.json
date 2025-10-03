@@ -1,6 +1,6 @@
 {
   "name": "@miniframework/core",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Simple mini framework for Express.js. Inspired By Nest.js.",
   "main": "index.js",
   "scripts": {
@@ -24,14 +24,18 @@
   },
   "homepage": "https://github.com/Kornellen/miniFramework#readme",
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^24.5.2",
     "@types/ws": "^8.18.1",
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@prisma/client": "^6.16.3",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "prisma": "^6.16.3",
     "reflect-metadata": "^0.2.2",
     "ws": "^8.18.3"
   },
